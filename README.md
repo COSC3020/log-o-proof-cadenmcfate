@@ -17,10 +17,11 @@ $T(n) \in O(f(n)) \iff \exists c, n_0: T(n) \leq c \cdot f(n), \forall n \geq n_
 $T(n) \in O(\log_5 n)$
 $\Rightarrow\exists c,n_0: T(n) \le c \cdot \log_5 n ,\forall n \geq n_0$
 
-$\Rightarrow \exists n_0: T(n) \le \frac{1}{\log_5 2} \cdot \log_5 n ,\forall n \geq n_0$ &emsp;&emsp;&emsp;
-$(c\rightarrow \frac{1}{\log_5 2})$
+$\Rightarrow \exists c,n_0: T(n) \le c \cdot \frac{\log_2 n}{\log_2 5},\forall n \geq n_0$ &emsp;&emsp;&emsp;(definition of log base conversion)
 
-$\Rightarrow \exists n_0: T(n) \le \log_2 n,\forall n \geq n_0$ &emsp;&emsp;&emsp;(definition of log base conversion)
+Since $\frac{1}{\log_2 5}$ is a positive constant, we can factor it into the existing $c$ term:
+
+$\Rightarrow \exists c,n_0: T(n) \le c\cdot \log_2 n,\forall n \geq n_0$
 
 $\Rightarrow T(n) \in O(\log_2 n)$  &emsp;&emsp;&emsp;(definition of O)
 
@@ -31,14 +32,17 @@ And
 $T(n) \in O(\log_2 n)$
 $\Rightarrow\exists c,n_0: T(n) \le c \cdot \log_2 n ,\forall n \geq n_0$
 
-$\Rightarrow \exists n_0: T(n) \le \frac{1}{\log_2 5} \cdot \log_2 n ,\forall n \geq n_0$ &emsp;&emsp;&emsp;
-$(c\rightarrow \frac{1}{\log_2 5})$
+$\Rightarrow \exists c,n_0: T(n) \le c \cdot \frac{\log_5 n}{\log_5 2},\forall n \geq n_0$ &emsp;&emsp;&emsp;(definition of log base conversion)
 
-$\Rightarrow \exists n_0: T(n) \le \log_5 n,\forall n \geq n_0$ &emsp;&emsp;&emsp;(definition of log base conversion)
+Since $\frac{1}{\log_5 2}$ is a positive constant, we can factor it into the existing $c$ term:
+
+$\Rightarrow \exists c,n_0: T(n) \le c\cdot \log_5 n,\forall n \geq n_0$
 
 $\Rightarrow T(n) \in O(\log_5 n)$  &emsp;&emsp;&emsp;(definition of O)
 
 //Revised proof to hold for any function T(n).
+
+//Revised proof to maintain an arbitrary $c$ term.
 
 Thus, $O(\log_{2} n)$ is the same as $O(\log_{5} n)$ because $T(n) \in O(\log_2 n)\iff T(n) \in O(\log_5 n), \forall T(n)$. Intuitively this makes sense because the change of base formula for logarithms only involves a constant term in the denominator. In this case we can take, for example, a search function for a 5-ary tree and a binary tree. We know that the difference in complexity would be constant, so we can omit the base of the logarithm and generalize to an asymptotic complexity of $O(\log n)$.
 
